@@ -1,0 +1,7 @@
+#PER INSTALLAZIONE DI HBASE STANDALONE (non c'è bisogno di installare Hadoop)
+1. Sportarsi nella directory di HBase -> /home/bernardo/hbase-2.3.6/bin
+2. Per lo start di HBASE -> ./start-hbase.sh
+3. jps -> verifica se l'HMaster è in esecuzione
+4. Per accedere alla shell di HBase -> ./hbase shell
+
+//CONNESSIONE DB HBASE CON PYTHON

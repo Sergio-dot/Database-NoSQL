@@ -13,7 +13,7 @@ for i in range(100):
     firstname_arr.append(fake.first_name())
     lastname_arr.append(fake.last_name())
 
-with open('dataset.csv', mode='w', newline='') as csv_file:
+with open('dataset_100.csv', mode='w', newline='') as csv_file:
     fieldnames = ['ID', 'CUSTOMER_NAME','STORE_NAME', 'AMOUNT', 'TRANSACTION_DATE',
                   'STATUS']
 

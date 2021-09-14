@@ -18,7 +18,7 @@ def connection_db():
 def create_table():
     try:
         connection = connection_db()
-        connection.create_table('TRANSACTION_Q3', { 'Transaction_Data':dict() })
+        connection.create_table('TRANSACTION_Q1', { 'Transaction_Data':dict() })
         print("Table created")
     except Exception as e:
         print("Error " + e)
@@ -31,7 +31,7 @@ def create_table():
 def push_data():
     try:
         connection = connection_db()
-        table = connection.table('TRANSACTION_Q3')
+        table = connection.table('TRANSACTION_Q1')
         csvfile = open("dataset.csv", "r")
         csvreader = csv.reader(csvfile)
         for row in csvreader:
@@ -52,7 +52,7 @@ def scan_table():
     try:
         row_count = 0
         connection = connection_db()
-        table = connection.table('TRANSACTION_Q3')
+        table = connection.table('TRANSACTION_Q1')
         for key, data in table.scan():
             no = key
             row_count += 1
@@ -75,4 +75,4 @@ connection_db()
 # push_data()
 
 # Uncomment the next line to read all rows in the table
-# scan_table()
+scan_table()

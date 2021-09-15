@@ -1,0 +1,43 @@
+##### SCHEMA QUERY #####
+1. La prima query ci permette di estrapolare dal database i dati relativi a tutti i CUSTOMERS e di tutti gli STORES dove
+   le transazioni effettuate hanno come AMOUNT un valore maggiore o uguale a 1500.
+   NEO4J -> 
+   ####
+   MATCH (c:CUSTOMER_NAME)-[r:HAS_BOUGHT]->(s:STORE_NAME) WHERE r.AMOUNT >= '1500' RETURN c.CUSTOMER_NAME, s.STORE_NAME, r.AMOUNT
+   ####
+
+2. La seconda query ci permette di estrapolare dal database i dati relativi a tutti i CUSTOMERS e di tutti gli STORES dove
+   le transazioni effettuate hanno come AMOUNT un valore maggiore o uguale a 1500 e come DATE xxxx/xx/xx in poi
+   NEO4J -> 
+   #### 
+   MATCH (c:CUSTOMER_NAME)-[r:HAS_BOUGHT]->(s:STORE_NAME) WHERE r.AMOUNT >= '1500' AND r.DATE > '2015-12-31'
+   RETURN c.CUSTOMER_NAME, s.STORE_NAME, r.AMOUNT, r.DATE
+   #####
+
+3. La terza query ci permette di estrapolare dal database i dati relativi a tutti i CUSTOMERS e di tutti gli STORES dove
+   le transazioni effettuate hanno come AMOUNT un valore maggiore o uguale a 1500, come DATE xxxx/xx/xx in poi e con uno
+   STATUS della transazione contestata, cioè 'disputed'.
+   NEO4J ->
+   ####
+   MATCH (c:CUSTOMER_NAME)-[r:HAS_BOUGHT]->(s:STORE_NAME)
+   WHERE r.AMOUNT >= '1500' AND r.DATE > '2015-12-31' AND r.STATUS = 'Disputed'
+   RETURN c.CUSTOMER_NAME, s.STORE_NAME, r.AMOUNT, r.DATE, r.STATUS
+   ####
+
+4. La quarta query ci permette di estrapolare dal database i dati relativi a tutti i CUSTOMERS che hanno effettuato delle transazioni
+   nello STORE xxxxxx, con un AMOUNT maggiore o uguale a 1500, come DATE xxxx/xx/xx in poi e con uno STATUS della transazione contestata.
+   NEO4J ->
+   ####
+   MATCH (c:CUSTOMER_NAME)-[r:HAS_BOUGHT]->(s:STORE_NAME {STORE_NAME: 'Coop, Milano'}) 
+   WHERE r.AMOUNT >= '1500' AND r.DATE > '2015-12-31' AND r.STATUS = 'Disputed' 
+   RETURN c.CUSTOMER_NAME, s.STORE_NAME, r.AMOUNT, r.DATE, r.STATUS
+   ####
+
+5. La quinta query ci permette di estrapolare dal database i dati relativi ad un determinato CUSTOMER xxxxxx che ha effettuato delle transazioni
+   nello STORE xxxxxx, con un AMOUNT maggiore o uguale a 1500, come DATE xxxx/xx/xx in poi e con uno STATUS della transazione contestata.
+   NEO4J ->
+   ####
+   MATCH (c:CUSTOMER_NAME {CUSTOMER_NAME: 'Rodolfo Golgi'})-[r:HAS_BOUGHT]->(s:STORE_NAME {STORE_NAME: 'Coop, Milano'})
+   WHERE r.AMOUNT >= '1500' AND r.DATE > '2015-12-31' AND r.STATUS = 'Disputed'
+   RETURN c.CUSTOMER_NAME, s.STORE_NAME, r.AMOUNT, r.DATE, r.STATUS
+   ####

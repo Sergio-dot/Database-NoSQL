@@ -7,7 +7,7 @@ user = 'neo4j'
 psw = 'sdp'
 
 driver = GraphDatabase.driver(uri, auth=(user, psw))
-pathCSV="file:///dataset.csv"
+pathCSV="file:///dataset_100.csv"
 
 def CSVImportCustomer(self, pathCSV):
     session = driver.session()

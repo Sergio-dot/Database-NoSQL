@@ -24,4 +24,5 @@ Dagli esperimenti si nota che HBase è nettamente superiore nelle prestazioni in
 
 ### Link utili:
 **Relazione:** [https://github.com/Sergio-dot/Database-NoSQL/blob/main/Relazione_DePietro_Siclari.pdf](url)
+
 **Idea progettuale**: [https://linkurio.us/blog/stolen-credit-cards-and-fraud-detection-with-neo4j/](url)
